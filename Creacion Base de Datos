@@ -1,0 +1,44 @@
+create table Cliente
+ (ID varchar(20),
+  Nombre varchar(30),
+  Segmento varchar(20),
+  Primary key (ID));
+ 
+create table Ubicación
+ (Codigo_Postal numeric(8),
+  Pais varchar(20),
+  Estado varchar(20),
+  Ciudad varchar(20),
+  Region varchar(20),
+  Primary key (Codigo_Postal));
+ 
+create table Producto
+ (ID varchar(20),
+  Nombre varchar(30),
+  Categoria varchar(20),
+  Subcategoria varchar(20),
+  Primary key (ID));
+ 
+create table Pedido
+ (ID varchar(20),
+  Fecha date,
+  Precio_Total numeric(8),
+  Descuento float,
+  Cantidad_Unidades numeric(8),
+  Primary key (ID));
+
+create table Residencia
+ (ID_Cliente varchar(20),
+  Codigo_Postal_Residencia numeric(8),
+  Foreign key (ID_Cliente) references from Cliente(ID),
+  Foreign key (Codigo_Postal_Residencia) references from Ubicacion(Codigo_Postal));
+  
+create table Envio
+ (ID_Producto varchar(20),
+  ID_Cliente varchar(20),
+  ID_Pedido varchar(20),
+  Fecha date,
+  Medio varchar(30),
+  Foreign key (ID_Producto) references from Producto(ID),
+  Foreign key (ID_Cliente) references from Cliente(ID),
+  Foreign key (ID_Pedido) references from Pedido(ID));
