@@ -1,0 +1,4 @@
+Seleccionar el producto que más se vende entre clientes que vivien en California
+Hacer un ranking de los productos que se envian en segunda clase agrupando por su numero de ventas de mayor a menor.
+Encontrar la suma total de productos de cada cliente que vive en Tennesse y cuyo pedido es enviado en primera clase
+Encontrar el promedio de productos que se envian el mismo dia y para clientes cuyo segemento sea "Consumidor", agrupados por categoria.
