@@ -22,7 +22,7 @@ create table Producto
 create table Pedido
  (ID varchar(20),
   Fecha date,
-  Precio_Total numeric(8),
+  Precio_Total numeric(8,4),
   Descuento float,
   Cantidad_Unidades numeric(8),
   Primary key (ID));
