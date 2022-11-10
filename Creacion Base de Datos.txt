@@ -4,7 +4,7 @@ create table Cliente
   Segmento varchar(20),
   Primary key (ID));
  
-create table Ubicación
+create table Ubicacion
  (Codigo_Postal numeric(8),
   Pais varchar(20),
   Estado varchar(20),
