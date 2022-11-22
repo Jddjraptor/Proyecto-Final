@@ -5,7 +5,7 @@ Tambien ver que categoria de productos es la más frecuente enviada de ese modo 
 
 Para esto se deben realizar las siguientes consultas:
 
-Seleccionar la ciudad cuya suma de precios en cada pedido sea la máxima entre todas las ciudades.
+Seleccionar la ciudad cuya suma de precios total de pedidos sea la máxima entre todas las ciudades.
 Hacer un ranking de los productos que más generaron dinero en la ciudad que arrojó la consulta anterior.
 Seleccionar el conteo de pedidos enviados agrupados por forma de envio filtrado por la ciudad de la primera consulta y sobre la base de datos completa, y rankearlos de mayor a menor.
 Seleccionar la categoria y el conteo de pedidos enviados de la manera más frecuente agrupados por categoria, y rankearlos de mayor a menor.
