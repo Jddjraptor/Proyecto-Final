@@ -1,44 +1,51 @@
 create table Cliente
  (ID varchar(20),
-  Nombre varchar(30),
-  Segmento varchar(20),
+  Nombre varchar(30) not null,
+  Segmento varchar(20) not null,
+  Primary key (ID));
+  
+create table Producto
+ (ID varchar(30),
+  Nombre varchar(50),
+  Categoria varchar(20) not null,
+  Subcategoria varchar(20) not null,
+  Primary key (ID, Nombre));
+  
+create table Pedido
+ (ID varchar(20),
+  Fecha date not null,
   Primary key (ID));
  
 create table Ubicacion
- (Codigo_Postal numeric(8),
-  Pais varchar(20),
-  Estado varchar(20),
+ (Codigo_Postal numeric(10),
+  Pais varchar(20) not null,
+  Estado varchar(20) not null,
   Ciudad varchar(20),
-  Region varchar(20),
-  Primary key (Codigo_Postal));
+  Region varchar(10) not null,
+  Primary key (Codigo_Postal, Ciudad));
  
-create table Producto
- (ID varchar(20),
-  Nombre varchar(30),
-  Categoria varchar(20),
-  Subcategoria varchar(20),
-  Primary key (ID));
- 
-create table Pedido
- (ID varchar(20),
-  Fecha date,
-  Precio_Total numeric(8,4),
-  Descuento float,
-  Cantidad_Unidades numeric(8),
-  Primary key (ID));
-
 create table Residencia
  (ID_Cliente varchar(20),
-  Codigo_Postal_Residencia numeric(8),
+  Codigo_Postal_Ubicacion numeric(10),
+  Ciudad_Ubicacion varchar(20),
+  Primary key (ID_Cliente, Codigo_Postal_Ubicacion, Ciudad_Ubicacion),
   Foreign key (ID_Cliente) references Cliente(ID),
-  Foreign key (Codigo_Postal_Residencia) references Ubicacion(Codigo_Postal));
+  Foreign key (Codigo_Postal_Ubicacion) references Ubicacion(Codigo_Postal),
+  Foreign key (Ciudad_Ubicacion) references Ubicacion(Ciudad));
   
 create table Envio
- (ID_Producto varchar(20),
-  ID_Cliente varchar(20),
-  ID_Pedido varchar(20),
-  Fecha date,
-  Medio varchar(30),
-  Foreign key (ID_Producto) references Producto(ID),
+ (ID numeric(8),
+  Fecha date not null,
+  Medio varchar(20) not null,
+  Precio_Total numeric(8,5) not null,
+  Descuento numeric(8,5) not null,
+  Cantidad_Unidades numeric(8) not null,
+  ID_Cliente varchar(20) not null,
+  ID_Producto varchar(30) not null,
+  Nombre_Producto varchar(50) not null,
+  ID_Pedido varchar(20) not null,
+  Primary key (ID),
   Foreign key (ID_Cliente) references Cliente(ID),
+  Foreign key (ID_Producto) references Producto(ID),
+  Foreign key (Nombre_Producto) references Producto(Nombre),
   Foreign key (ID_Pedido) references Pedido(ID));
