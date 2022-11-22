@@ -1,4 +1,11 @@
-Seleccionar el producto que más se vende entre clientes que vivien en California
-Hacer un ranking de los productos que se envian en segunda clase agrupando por su numero de ventas de mayor a menor.
-Encontrar la suma total de productos de cada cliente que vive en Tennesse y cuyo pedido es enviado en primera clase
-Encontrar el promedio de productos que se envian el mismo dia y para clientes cuyo segemento sea "Consumidor", agrupados por categoria.
+Primero que todo se quiere saber que ciudad es la que más plata invierte en la tienda, esto para despues ver que productos son los más demandados en esta ciudad y así poder realizar una estrategia comercial para maximizar las ganancias con base en esta información.
+Por otra parte, se quiere ver que forma de envio es la más frecuente en esta ciudad y en general
+Tambien ver que categoria de productos es la más frecuente enviada de ese modo en general.
+
+
+Para esto se deben realizar las siguientes consultas:
+
+Seleccionar la ciudad cuya suma de precios en cada pedido sea la máxima entre todas las ciudades.
+Hacer un ranking de los productos que más generaron dinero en la ciudad que arrojó la consulta anterior.
+Seleccionar el conteo de pedidos enviados agrupados por forma de envio filtrado por la ciudad de la primera consulta y sobre la base de datos completa, y rankearlos de mayor a menor.
+Seleccionar la categoria y el conteo de pedidos enviados de la manera más frecuente agrupados por categoria, y rankearlos de mayor a menor.
