@@ -10,7 +10,7 @@ try:
     )
     print("Conexión exitosa")
     cursor=connection.cursor()
-    cursor.execute("")
+    cursor.execute("select Ciudad, count(Precio_Total), rank() over(order by Precio_Total) from Ubicacion group by Ciudad")
     rows=cursor.fetchall()
     for row in rows:
         print(row)
