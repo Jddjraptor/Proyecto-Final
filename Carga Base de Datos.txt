@@ -1,1 +1,6 @@
 copy cliente from 'C:\Users\Public\Fuente de Datos\Datos Cliente.csv' delimiter ';' csv header;
+copy producto from 'C:\Users\Public\Fuente de Datos\Datos Producto.csv' delimiter ';' csv header;
+copy pedido from 'C:\Users\Public\Fuente de Datos\Datos Pedido.csv' delimiter ';' csv header;
+copy ubicacion from 'C:\Users\Public\Fuente de Datos\Datos Ubicacion.csv' delimiter ';' csv header;
+copy residencia from 'C:\Users\Public\Fuente de Datos\Datos Residencia.csv' delimiter ';' csv header;
+copy envio from 'C:\Users\Public\Fuente de Datos\Datos Envio.csv' delimiter ';' csv header;
