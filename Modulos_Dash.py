@@ -10,7 +10,10 @@ try:
     )
     print("Conexión exitosa")
     cursor=connection.cursor()
-    cursor.execute("select Ciudad, count(Precio_Total), rank() over(order by Precio_Total) from Ubicacion group by Ciudad")
+    cursor.execute("select distinct u.Ciudad, sum(e.
+    Precio_Total), rank() over(order by e.Precio_Total) from Ubicacion as u, Envio as e, Cliente as c, Residencia as r where u.Ciudad = r.Ciudad and r.ID_Cliente = c.ID, e.ID_cliente = c.ID group by u.Ciudad")
+    #Consulta2
+    #cursor.execute("select P.Nombre, rank() over(order by sum(Precio_Total))")
     rows=cursor.fetchall()
     for row in rows:
         print(row)
