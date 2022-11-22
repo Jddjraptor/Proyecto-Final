@@ -30,8 +30,7 @@ create table Residencia
   Ciudad_Ubicacion varchar(20),
   Primary key (ID_Cliente, Codigo_Postal_Ubicacion, Ciudad_Ubicacion),
   Foreign key (ID_Cliente) references Cliente(ID),
-  Foreign key (Codigo_Postal_Ubicacion) references Ubicacion(Codigo_Postal),
-  Foreign key (Ciudad_Ubicacion) references Ubicacion(Ciudad));
+  Foreign key (Codigo_Postal_Ubicacion, Ciudad_Ubicacion) references Ubicacion(Codigo_Postal, Ciudad));
   
 create table Envio
  (ID numeric(8),
@@ -46,6 +45,5 @@ create table Envio
   ID_Pedido varchar(20) not null,
   Primary key (ID),
   Foreign key (ID_Cliente) references Cliente(ID),
-  Foreign key (ID_Producto) references Producto(ID),
-  Foreign key (Nombre_Producto) references Producto(Nombre),
+  Foreign key (ID_Producto, Nombre_Producto) references Producto(ID, nombre),
   Foreign key (ID_Pedido) references Pedido(ID));
