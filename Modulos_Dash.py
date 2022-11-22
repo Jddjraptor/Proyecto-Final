@@ -5,19 +5,18 @@ try:
     connection=psycopg2.connect(
         host='localhost',
         user='postgres',
-        password='123456789',
-        database='Graph'
+        password='12345',
+        database='Proyecto Final'
     )
     print("Conexión exitosa")
     cursor=connection.cursor()
-    cursor.execute("select l.edicion, c.cantidad from libro as l inner join compra as c on l.codigo=c.codigo_libro")
+    cursor.execute("")
     rows=cursor.fetchall()
     for row in rows:
         print(row)
     app = Dash(__name__)
-    'fig = px.bar(rows, x=0, y=1, color_discrete_sequence=["#b52a64"])'
-    fig = px.pie(rows, values=1, names=0, color_discrete_sequence=["#b52a64"])
-    fig = px.line(rows, values=1, names=0, color_discrete_sequence=["#b52a64"])
+    fig = px.bar(rows, x=0, y=1, color_discrete_sequence=["#b52a64"])'
+    #fig = px.pie(rows, values=1, names=0, color_discrete_sequence=["#b52a64"])
 
     app.layout = html.Div(children=[
         html.H1(children='Grafico Edicion Cantidad'),
