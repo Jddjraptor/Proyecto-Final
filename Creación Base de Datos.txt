@@ -6,7 +6,7 @@ create table Cliente
   
 create table Producto
  (ID varchar(30),
-  Nombre varchar(50),
+  Nombre varchar(150),
   Categoria varchar(20) not null,
   Subcategoria varchar(20) not null,
   Primary key (ID, Nombre));
@@ -41,7 +41,7 @@ create table Envio
   Cantidad_Unidades numeric(8) not null,
   ID_Cliente varchar(20) not null,
   ID_Producto varchar(30) not null,
-  Nombre_Producto varchar(50) not null,
+  Nombre_Producto varchar(150) not null,
   ID_Pedido varchar(20) not null,
   Primary key (ID),
   Foreign key (ID_Cliente) references Cliente(ID),
