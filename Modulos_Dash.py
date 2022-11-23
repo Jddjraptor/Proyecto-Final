@@ -33,6 +33,14 @@ try:
     rows=cursor.fetchall()
     for row in rows:
         print(row)
+     
+    print("\n")
+        
+    cursor.execute("select p.categoria, count(e.id) as conteo, rank() over(order by count(e.id) desc) from Producto as p, envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente and e.ID_Producto = p.ID and e.Nombre_Producto = p.Nombre and u.ciudad = 'New York City' and e.medio = 'Standard Class' group by p.categoria order by rank asc")
+    
+    rows=cursor.fetchall()
+    for row in rows:
+        print(row)
     
     app = Dash(__name__)
     fig = px.bar(rows, x=0, y=1, color_discrete_sequence=["#b52a64"])'
