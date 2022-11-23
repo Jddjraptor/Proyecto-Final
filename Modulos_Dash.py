@@ -43,17 +43,17 @@ try:
         print(row)
         
     app = Dash(__name__)
-    fig1 = px.bar(rows1, x=0, y=1, color_discrete_sequence=["#b52a64"])
+    fig4 = px.bar(rows4, x=0, y=1, color_discrete_sequence=["#b52a64"])
 
     app.layout = html.Div(children=[
-        html.H1(children='Grafico Consulta 1'),
+        html.H1(children='Grafico Consulta 4'),
 
         html.Div(children='''
             Dash: Aplicación para gráficar datos
         '''),
         dcc.Graph(
-            id='graph1',
-            figure=fig1
+            id='graph4',
+            figure=fig4
         )
     ])
     
