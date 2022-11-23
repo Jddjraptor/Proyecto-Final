@@ -15,7 +15,7 @@ try:
     #Consulta1
     cursor.execute("select u.ciudad, sum(e.precio_total) as suma, rank() over(order by sum(e.precio_total) desc) from envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente group by u.Ciudad order by rank asc")
     #Consulta2
-    #cursor.execute("select P.Nombre, rank() over(order by sum(Precio_Total))")
+    #cursor.execute("select p.nombre, sum(e.precio_total) as suma, rank() over(order by sum(e.precio_total) desc) from producto as p, envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente and e.ID_Producto = p.ID and e.Nombre_Producto = p.Nombre and u.Ciudad = 'New York City' group by p.nombre order by rank asc")
     
     rows=cursor.fetchall()
     for row in rows:
