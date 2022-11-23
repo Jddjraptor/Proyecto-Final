@@ -44,10 +44,10 @@ try:
         
     app = Dash(__name__)
     
-    fig3 = px.pie(rows3, values=1, names=0, color_discrete_sequence=["#b52a64"])
-    fig4 = px.pie(rows4, values=1, names=0, color_discrete_sequence=["#b52a64"])
-    fig1 = px.bar(rows1, x=0, y=1, color_discrete_sequence=["#b52a64"])
-    fig2 = px.bar(rows2, x=0, y=1, color_discrete_sequence=["#b52a64"])
+    fig3 = px.pie(rows3, values=1, names=0, color_discrete_sequence=["#33ff33"])
+    fig4 = px.pie(rows4, values=1, names=0, color_discrete_sequence=["#33b5ff"])
+    fig1 = px.bar(rows1, x=0, y=1, color_discrete_sequence=["#ff4033"])
+    fig2 = px.bar(rows2, x=0, y=1, color_discrete_sequence=["#f0ff33"])
 
     app.layout = html.Div(children=[
         html.H1(children='Graficos Consultas'),
