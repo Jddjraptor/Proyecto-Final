@@ -8,4 +8,4 @@ Para esto se deben realizar las siguientes consultas:
 Seleccionar las ciudades y la suma de precios total de pedidos agrupados por ciudades y rankearlos.
 Hacer un ranking de los productos que más generaron dinero en la ciudad con el mayor ranking de la consulta anterior.
 Seleccionar el conteo de pedidos enviados agrupados por forma de envio y estos filtrados por la ciudad mejor rankeada de la primera consulta y sobre la base de datos completa, y rankearlos de mayor a menor.
-Seleccionar la categoria del producto y el conteo de pedidos enviados de la manera más frecuente (el mejor rankeado de la consulta anterior) agrupados por categoria, y rankearlos de mayor a menor.
+Seleccionar la categoria del producto y el conteo de pedidos enviados en la ciudad de la primera consulta y de la manera más frecuente (el mejor rankeado de la consulta anterior) agrupados por categoria, y rankearlos de mayor a menor.
