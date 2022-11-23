@@ -43,19 +43,27 @@ try:
         print(row)
         
     app = Dash(__name__)
+    
+    fig1 = px.bar(rows1, x=0, y=1, color_discrete_sequence=["#b52a64"])
+    fig2 = px.bar(rows2, x=0, y=1, color_discrete_sequence=["#b52a64"])
+    fig3 = px.bar(rows3, x=0, y=1, color_discrete_sequence=["#b52a64"])
     fig4 = px.bar(rows4, x=0, y=1, color_discrete_sequence=["#b52a64"])
 
     app.layout = html.Div(children=[
-        html.H1(children='Grafico Consulta 4'),
-
-        html.Div(children='''
-            Dash: Aplicación para gráficar datos
-        '''),
+        html.H1(children='Graficos Consultas'),
+        html.Div(children='''Dash: Aplicación para gráficar datos'''),
+        dcc.Graph(
+            id='graph1',
+            figure=fig1),
+        dcc.Graph(
+            id='graph2',
+            figure=fig2),
+        dcc.Graph(
+            id='graph3',
+            figure=fig3),
         dcc.Graph(
             id='graph4',
-            figure=fig4
-        )
-    ])
+            figure=fig4)])
     
     if __name__ == '__main__':
         app.run_server(debug=True)   
@@ -66,3 +74,4 @@ except Exception as ex:
 finally:
     connection.close()
     print("Conexion finalizada")
+    
