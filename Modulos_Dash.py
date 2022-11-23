@@ -12,7 +12,7 @@ try:
     print("Conexión exitosa")
     cursor=connection.cursor()
     
-    cursor.execute("select u.ciudad, sum(e.precio_total) as suma, rank() over(order by sum(e.precio_total) desc) from envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente group by u.Ciudad order by rank asc")
+    cursor.execute("select u.ciudad, sum(e.precio_total) as suma, rank() over(order by sum(e.precio_total) desc) from envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente group by u.Ciudad order by rank asc limit 10")
     
     rows1=cursor.fetchall()
     for row in rows1:
@@ -20,7 +20,7 @@ try:
         
     print("\n")
         
-    cursor.execute("select p.nombre, sum(e.precio_total) as suma, rank() over(order by sum(e.precio_total) desc) from producto as p, envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente and e.ID_Producto = p.ID and e.Nombre_Producto = p.Nombre and u.Ciudad = 'New York City' group by p.nombre order by rank asc")
+    cursor.execute("select p.nombre, sum(e.precio_total) as suma, rank() over(order by sum(e.precio_total) desc) from producto as p, envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente and e.ID_Producto = p.ID and e.Nombre_Producto = p.Nombre and u.Ciudad = 'New York City' group by p.nombre order by rank asc limit 10")
     
     rows2=cursor.fetchall()
     for row in rows2:
@@ -44,10 +44,10 @@ try:
         
     app = Dash(__name__)
     
+    fig3 = px.pie(rows3, values=1, names=0, color_discrete_sequence=["#b52a64"])
+    fig4 = px.pie(rows4, values=1, names=0, color_discrete_sequence=["#b52a64"])
     fig1 = px.bar(rows1, x=0, y=1, color_discrete_sequence=["#b52a64"])
     fig2 = px.bar(rows2, x=0, y=1, color_discrete_sequence=["#b52a64"])
-    fig3 = px.bar(rows3, x=0, y=1, color_discrete_sequence=["#b52a64"])
-    fig4 = px.bar(rows4, x=0, y=1, color_discrete_sequence=["#b52a64"])
 
     app.layout = html.Div(children=[
         html.H1(children='Graficos Consultas'),
