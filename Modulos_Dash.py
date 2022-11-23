@@ -26,6 +26,14 @@ try:
     for row in rows:
         print(row)
         
+    print("\n")
+        
+    cursor.execute("select e.medio, count(e.id) as conteo, rank() over(order by count(e.id) desc) from envio as e, Cliente as c, Residencia as r, Ubicacion as u where u.Ciudad = r.Ciudad_Ubicacion and u.Codigo_Postal = r.Codigo_postal_Ubicacion and r.ID_Cliente = c.ID and c.ID = e.ID_Cliente and u.Ciudad = 'New York City' group by e.medio order by rank asc")
+     
+    rows=cursor.fetchall()
+    for row in rows:
+        print(row)
+    
     app = Dash(__name__)
     fig = px.bar(rows, x=0, y=1, color_discrete_sequence=["#b52a64"])'
     #fig = px.pie(rows, values=1, names=0, color_discrete_sequence=["#b52a64"])
